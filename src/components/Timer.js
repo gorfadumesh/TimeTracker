@@ -47,21 +47,10 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-const lapsDefault = {
-  lapsList: [],
-  lastLapTime: 0,
-  fastest: {
-    lapTime: Infinity,
-    index: -1,
-  },
-  slowest: {
-    lapTime: -1,
-    index: -1,
-  },
-};
+
 
 function Timer() {
-  const classes = useStyle();
+  
   const [time, setTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -112,7 +101,7 @@ function Timer() {
   };
 
   const onEdit = (val) => {
-    taskList?.map((item, i) => {
+    taskList?.forEach((item, i) => {
       if (item.time == val) {
         setSelectedList(taskList[i]);
       }
@@ -120,8 +109,8 @@ function Timer() {
     setIsEdit(true);
   };
   const onEditSave = () => {
-    let data = taskList?.map((item) => {
-      if (item.time == selectedList.time) {
+     taskList?.forEach((item) => {
+      if (item.time === selectedList.time) {
         item.description = editedDescription;
       }
     });
