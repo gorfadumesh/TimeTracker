@@ -1,51 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles, Button } from "@material-ui/core";
 
-const useStyle = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  labelTime: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-around",
-  },
-  playButton: {
-    //   color: theme.status.play,
-    fontSize: "48px",
-  },
-  pauseButton: {
-    //   color: theme.status.pause,
-    fontSize: "48px",
-  },
-  flagButton: {
-    color: "",
-    fontSize: "48px",
-  },
-  restoreButton: {
-    color: "",
-    fontSize: "48px",
-  },
-  tableContainer: {
-    maxHeight: "70vh",
-  },
-  table: {
-    minWidth: 600,
-  },
-  tableBody: {
-    alignItems: "space-around",
-    overflowY: "auto",
-  },
-  lapCell: {
-    display: "flex",
-    flexDirection: "row",
-  },
-  lapCellTypo: {
-    marginRight: 20,
-  },
-}));
+
 
 
 
@@ -102,7 +58,7 @@ function Timer() {
 
   const onEdit = (val) => {
     taskList?.forEach((item, i) => {
-      if (item.time == val) {
+      if (item.time === val) {
         setSelectedList(taskList[i]);
       }
     });
